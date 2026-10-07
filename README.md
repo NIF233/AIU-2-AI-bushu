@@ -34,8 +34,8 @@
    启动成功后，浏览器访问 http://localhost/install 完成初始化。
 3. 配置本地模型
    在 Dify 后台 -> 设置 -> 模型供应商中，添加 Ollama：
-   · 基础 URL：http://host.docker.internal:11434（⚠️ 注意：不可填 localhost）
-   · 模型名称：qwen2.5（需与 ollama ls 显示完全一致）
+   · 基础 URL：http://host.docker.internal:11434
+   · 模型名称：qwen2.5
 4. 运行 CLI 应用
    创建一个聊天应用，生成 API 密钥后，执行：
    ```bash
