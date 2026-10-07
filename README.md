@@ -47,6 +47,7 @@
 2. 训练模型（可选）：python 后端/train.py
 3. 启动 Web 后端：python 后端/web_server.py
 4. 浏览器访问 http://localhost:5000，上传图片即可查看检测结果。
+
 🤖 AI 使用说明
 
 本项目在开发过程中使用了 AI 辅助（如生成 CLI 测试代码、排查 Docker 网络配置问题、检查 HTML 语法错误），所有系统环境配置、Dify 平台接入和调试均由本人独立完成。
