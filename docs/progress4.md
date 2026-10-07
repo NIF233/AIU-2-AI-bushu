@@ -1,4 +1,5 @@
- ##`[2026-10-07 13:44] 任务四：Harness 智能体框架搭建完毕。`
+ ##[2026-10-07 13:44] 任务四：Harness 智能体框架搭建完毕。
+ 
  **进展**：从零实现了包含 Agent Loop、工具注册（read_file/write_file/bash）、Ollama LLM 封装、对话历史管理的完整 Harness。
  **踩坑与解决**：
  1. 跨盘符切换路径失败。解决：使用 `cd /d D:\AIU-Project` 强制切换。
