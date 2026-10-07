@@ -17,7 +17,7 @@
 ### 步骤
 
 🚀 快速开始（复现步骤）
-
+- **任务一：本地大模型与智能体应用**
 1. 启动本地大模型
    前往 Ollama 官网 下载并安装，在终端执行：
    ```bash
@@ -41,24 +41,31 @@
    ```bash
    pip install requests
    python cli_app.py
-   ```
+ - **任务二：YOLO 目标检测与 Web 部署**
+  - 使用 ultralytics 完成 YOLO 模型训练。
+  - 实现摄像头实时推理检测。
+  - Flask + HTML 实现网页端上传图片，后端返回检测结果。  ```
 
 🤖 AI 使用说明
 
-本项目在开发过程中使用了 AI 辅助（如生成 CLI 测试代码、排查 Docker 网络配置问题），所有系统环境配置、Dify 平台接入和调试均由本人独立完成。
-
+本项目在开发过程中使用了 AI 辅助（如生成 CLI 测试代码、排查 Docker 网络配置问题、检查 HTML 语法错误），所有系统环境配置、Dify 平台接入和调试均由本人独立完成。
 📝 踩坑记录（详见 docs/progress.md）
 
 · Windows 下安装 Docker 遇到“虚拟机平台未开启”、“WSL 未安装”等连环报错，通过手动开启系统功能并安装内核更新包解决。
 · Docker 镜像拉取遇到网络限制，通过在 Docker Engine 配置国内镜像源解决。
 · Dify 接入 Ollama 时，基础 URL 必须使用 host.docker.internal，因为容器内的 localhost 指向容器自身。
 
-## 项目结构
+## 📂 项目结构
 ```text
 AIU-2-AI-bushu/
 ├── README.md           # 项目说明文档
-├── .gitignore          # Git忽略规则
+├── .gitignore          # Git 忽略规则
 ├── 后端/
-│   └── cli_app.py      # 自建 CLI 应用代码
+│   ├── cli_app.py      # 任务一：Dify API 调用客户端
+│   ├── train.py        # 任务二：YOLO 模型训练脚本
+│   ├── yolo_cam.py     # 任务二：实时摄像头推理脚本
+│   └── web_server.py   # 任务二：Flask Web 后端
+├── 前端/
+│   └── index.html      # 任务二：YOLO 检测前端页面
 └── 记录/
-    └── progress.md     # 工程日志
+    └── progress.md     # 工程日志（记录踩坑与解决过程）
