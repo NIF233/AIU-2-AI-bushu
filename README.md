@@ -57,6 +57,8 @@
 ```text
 AIU-2-AI-bushu/
 ├── README.md           # 项目说明文档
-├── cli_app.py          # 自建 CLI 应用，通过 API 调用 Dify
-└── docs/
-    └── progress.md     # 工程日志（记录踩坑与解决过程）
+├── .gitignore          # Git忽略规则
+├── 后端/
+│   └── cli_app.py      # 自建 CLI 应用代码
+└── 记录/
+    └── progress.md     # 工程日志
