@@ -48,6 +48,12 @@
 3. 启动 Web 后端：python 后端/web_server.py
 4. 浏览器访问 http://localhost:5000，上传图片即可查看检测结果。
 
+### 任务四：Harness 搭建（进阶）
+1. 确保 Ollama 已启动，本地已下载 `qwen2.5` 模型。
+2. 在项目根目录运行：
+   ```bash
+   python -m harness.cli
+   
 🤖 AI 使用说明
 
 本项目在开发过程中使用了 AI 辅助（如生成 CLI 测试代码、排查 Docker 网络配置问题、检查 HTML 语法错误），所有系统环境配置、Dify 平台接入和调试均由本人独立完成。
@@ -63,6 +69,12 @@
 AIU-2-AI-bushu/
 ├── README.md           # 项目说明文档
 ├── .gitignore          # Git 忽略规则
+├── harness/            # 任务四：极简智能体运行框架
+│   ├── agent.py        # Agent 主循环与工具调度
+│   ├── tools.py        # 工具注册表（read/write/bash）
+│   ├── llm.py          # 对接本地 Ollama 接口封装
+│   ├── memory.py       # 对话历史管理
+│   └── cli.py          # 命令行入口
 ├── 后端/
 │   ├── cli_app.py      # 任务一：Dify API 调用客户端
 │   ├── train.py        # 任务二：YOLO 模型训练脚本
