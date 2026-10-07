@@ -15,11 +15,43 @@
 - 8GB 以上内存（跑 7B 模型）
 
 ### 步骤
-1. 安装 Ollama：去 ollama.com 下载安装
-2. 拉取模型：`ollama pull qwen2.5`
-3. 安装依赖：`pip install -r requirements.txt`
-4. 启动后端：`python app.py`
-5. 打开浏览器访问 `http://localhost:5000`
+
+🚀 快速开始（复现步骤）
+
+1. 启动本地大模型
+   前往 Ollama 官网 下载并安装，在终端执行：
+   ```bash
+   ollama run qwen2.5
+   ```
+2. 部署 Dify 平台
+   在终端执行（需确保 Docker 已启动）：
+   ```bash
+   git clone https://github.com/langgenius/dify.git
+   cd dify/docker
+   cp .env.example .env
+   docker compose up -d
+   ```
+   启动成功后，浏览器访问 http://localhost/install 完成初始化。
+3. 配置本地模型
+   在 Dify 后台 -> 设置 -> 模型供应商中，添加 Ollama：
+   · 基础 URL：http://host.docker.internal:11434（⚠️ 注意：不可填 localhost）
+   · 模型名称：qwen2.5（需与 ollama ls 显示完全一致）
+4. 运行 CLI 应用
+   创建一个聊天应用，生成 API 密钥后，执行：
+   ```bash
+   pip install requests
+   python cli_app.py
+   ```
+
+🤖 AI 使用说明
+
+本项目在开发过程中使用了 AI 辅助（如生成 CLI 测试代码、排查 Docker 网络配置问题），所有系统环境配置、Dify 平台接入和调试均由本人独立完成。
+
+📝 踩坑记录（详见 docs/progress.md）
+
+· Windows 下安装 Docker 遇到“虚拟机平台未开启”、“WSL 未安装”等连环报错，通过手动开启系统功能并安装内核更新包解决。
+· Docker 镜像拉取遇到网络限制，通过在 Docker Engine 配置国内镜像源解决。
+· Dify 接入 Ollama 时，基础 URL 必须使用 host.docker.internal，因为容器内的 localhost 指向容器自身。
 
 ## 项目结构
 ```text
