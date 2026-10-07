@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>YOLO Web 目标检测</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        img { max-width: 100%; margin-top: 20px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>YOLO 实时目标检测</h2>
+        <input type="file" id="imageInput" accept="image/*">
+        <button onclick="uploadImage()">上传并检测</button>
+        <br>
+        <img id="resultImage" src="" alt="识别结果" style="display:none;">
+    </div>
+    <script>
+        async function uploadImage() {
+            const fileInput = document.getElementById('imageInput');
+            const file = fileInput.files[0];
+            if (!file) { alert("请先选择一张图片"); return; }
+            const formData = new FormData();
+            formData.append('image', file);
+            try {
+                const response = await fetch('/detect', { method: 'POST', body: formData });
+                const data = await response.json();
+                if (data.image) {
+                    const resultImg = document.getElementById('resultImage');
+                    resultImg.src = data.image;
+                    resultImg.style.display = 'block';
+                } else {
+                    alert("检测失败: " + (data.error || "未知错误"));
+                }
+            } catch (error) {
+                alert("请求出错，请检查后端是否在运行: " + error);
+            }
+        }
+    </script>
+</body>
+</html>
