@@ -5,7 +5,8 @@
  1. 跨盘符切换路径失败。解决：使用 `cd /d D:\AIU-Project` 强制切换。
   <img width="1706" height="1279" alt="4425115e83b1d84f598d8d8d065d5131" src="https://github.com/user-attachments/assets/e19cf5fe-54dd-4fd3-a7d5-83fd48072d06" />
  2. 文件名拼写错误（将字母 `l` 敲成数字 `1`，导致 `llm.py` 变成 `11m.py`）。解决：重命名文件并清理 `__pycache__`。
- 3. 调用工具报错 `TypeError: the JSON object must be str, bytes or bytearray, not dict`。原因：Ollama 返回的 arguments 是 dict，而 OpenAI 是字符串。解决：在 `agent.py` 中增加 `isinstance` 类型判断，兼容两种格式。<img width="1706" height="1279" alt="56e1d2ff226cc65fc2506136798e2171" src="https://github.com/user-attachments/assets/d6624405-a5df-44e7-9f50-1644f420a415" />
+ 3. 调用工具报错 `TypeError: the JSON object must be str, bytes or bytearray, not dict`。原因：Ollama 返回的 arguments 是 dict，而 OpenAI 是字符串。解决：在 `agent.py` 中增加 `isinstance` 类型判断，兼容两种格式。
+  <img width="1706" height="1279" alt="56e1d2ff226cc65fc2506136798e2171" src="https://github.com/user-attachments/assets/d6624405-a5df-44e7-9f50-1644f420a415" />
  4. 读取文件报错 `FileNotFoundError`。原因：本地目录确实没有该文件。解决：在本地补建文件，验证了 Agent 的异常捕获与反馈机制。
 
 ---
