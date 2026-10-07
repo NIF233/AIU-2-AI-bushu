@@ -22,3 +22,9 @@
 5. 打开浏览器访问 `http://localhost:5000`
 
 ## 项目结构
+```text
+AIU-2-AI-bushu/
+├── README.md           # 项目说明文档
+├── cli_app.py          # 自建 CLI 应用，通过 API 调用 Dify
+└── docs/
+    └── progress.md     # 工程日志（记录踩坑与解决过程）
