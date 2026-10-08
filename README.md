@@ -17,7 +17,7 @@
 ### 步骤
 
 🚀 快速开始（复现步骤）
-- **任务一：本地大模型与智能体应用**
+###任务一：本地大模型与智能体应用**
 1. 启动本地大模型
    前往 Ollama 官网 下载并安装，在终端执行：
    ```bash
@@ -41,7 +41,7 @@
    ```bash
    pip install requests
    python cli_app.py
-任务二：YOLO 跑通与 Web 部署
+###任务二：YOLO 跑通与 Web 部署
 
 1. 安装依赖：pip install ultralytics opencv-python flask
 2. 训练模型（可选）：python 后端/train.py
@@ -54,7 +54,7 @@
    ```bash
    python -m harness.cli
 
-- **任务五：创意作品 - 2D转3D场景生成（进阶）**
+###任务五：创意作品 - 2D转3D场景生成（进阶）**
   - 结合 YOLO 与前端 Three.js，实现“上传图片 -> 识别物体 -> 前端渲染 3D 场景”。
   - **工程决策**：放弃不稳定的 LLM 代码生成，改用“数据驱动渲染”架构，实现了高稳定性。
    
