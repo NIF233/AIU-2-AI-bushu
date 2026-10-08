@@ -1,12 +1,12 @@
 ### 阶段一：本地大模型部署与 Dify 接入（任务一）
 
-1. AI 协助的内容
+ - 1. AI 协助的内容
 
 · 提供了 Ollama 和 Dify 的部署指导。
 · 排查了 Docker 的安装报错（Virtual Machine Platform、WSL）。
 · 协助解决了拉取镜像时的网络问题（配置 registry-mirrors 和代理）。
 
-2. AI 翻车与我的解决（高价值经验）
+ - 2. AI 翻车与我的解决（高价值经验）
 
 · AI 的局限：AI 给出的 localhost:11434 作为 Dify 的 Base URL，导致连接失败。
 · 我的解决：我意识到 Dify 运行在 Docker 容器内，容器内的 localhost 指向容器自身。通过查阅资料，我主动将 Base URL 改为了 http://host.docker.internal:11434，成功连通。
