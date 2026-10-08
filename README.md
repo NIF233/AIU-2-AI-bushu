@@ -53,6 +53,10 @@
 2. 在项目根目录运行：
    ```bash
    python -m harness.cli
+
+- **任务五：创意作品 - 2D转3D场景生成（进阶）**
+  - 结合 YOLO 与前端 Three.js，实现“上传图片 -> 识别物体 -> 前端渲染 3D 场景”。
+  - **工程决策**：放弃不稳定的 LLM 代码生成，改用“数据驱动渲染”架构，实现了高稳定性。
    
 🤖 AI 使用说明
 
@@ -67,20 +71,28 @@
 ## 📂 项目结构
 ```text
 AIU-2-AI-bushu/
-├── README.md           # 项目说明文档
-├── .gitignore          # Git 忽略规则
-├── harness/            # 任务四：极简智能体运行框架
-│   ├── agent.py        # Agent 主循环与工具调度
-│   ├── tools.py        # 工具注册表（read/write/bash）
-│   ├── llm.py          # 对接本地 Ollama 接口封装
-│   ├── memory.py       # 对话历史管理
-│   └── cli.py          # 命令行入口
-├── 后端/
-│   ├── cli_app.py      # 任务一：Dify API 调用客户端
-│   ├── train.py        # 任务二：YOLO 模型训练脚本
-│   ├── yolo_cam.py     # 任务二：实时摄像头推理脚本
-│   └── web_server.py   # 任务二：Flask Web 后端
-├── 前端/
-│   └── index.html      # 任务二：YOLO 检测前端页面
-└── 记录/
-    └── progress.md     # 工程日志（记录踩坑与解决过程）
+├── README.md
+├── .gitignore
+├── backend/                     # 所有 Python 后端服务与脚本
+│   ├── cli_app.py            # 任务一：Dify CLI 客户端
+│   ├── train.py              # 任务二：YOLO 训练脚本
+│   ├── yolo_cam.py           # 任务二：摄像头实时推理
+│   ├── web_server.py         # 任务二：纯 YOLO Web 后端
+│   └── web_server_task5.py   # 任务五：2D转3D Web 后端
+├── frontend/                     # 网页前端资源
+│   ├── index.html            # 任务二：纯 YOLO 前端
+│   ├── index_task5.html      # 任务五：2D转3D 前端
+│   ├── three.min.js          # 任务五：本地 Three.js 库
+│   └── OrbitControls.js      # 任务五：轨道控制器
+├── hardness/                   # 任务四：极简智能体运行框架 (Harness)
+│   ├── agent.py
+│   ├── tools.py
+│   ├── llm.py
+│   ├── memory.py
+│   └── cli.py
+└── docs/                   # 工程日志
+    ├── progress1.md
+    ├── progress2.md
+    ├── progress3.md
+    ├── progress4.md
+    └── progress5.md          # 后续补充
