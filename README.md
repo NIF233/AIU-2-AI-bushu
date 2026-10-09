@@ -21,7 +21,7 @@
 1. 启动本地大模型
    前往 Ollama 官网 下载并安装，在终端执行：
    ```bash
-   ollama run qwen2.5
+   ollama run qwen2.5:latest
    ```
 2. 部署 Dify 平台
    在终端执行（需确保 Docker 已启动）：
